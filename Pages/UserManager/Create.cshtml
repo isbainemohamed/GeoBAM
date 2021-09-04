@@ -1,0 +1,55 @@
+﻿@page
+@model GeoBAM.Pages.UserManager.CreateModel
+
+@{
+    ViewData["Title"] = "Ajouter un nouveau utilisateur";
+}
+
+<h1>Créer un nouveau utilisateur</h1>
+
+<h4>Utilisateur</h4>
+<hr />
+<div class="row">
+    <div class=" container-fluid col-12 col-sm-10 col-md-6 col-lg-6" style="border-color: darkblue;">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="User.FirstName" class="control-label"> Nom</label>
+                <input asp-for="User.FirstName" style="width:" class="form-control" />
+                <span asp-validation-for="User.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.LastName" class="control-label"> Prénom</label>
+                <input asp-for="User.LastName" class="form-control" />
+                <span asp-validation-for="User.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.Email" class="control-label"> Adresse E-mail</label>
+                <input asp-for="User.Email" class="form-control" />
+                <span asp-validation-for="User.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.Password" class="control-label"> Mot de Passe</label>
+                <input asp-for="User.Password" class="form-control" />
+                <span asp-validation-for="User.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User.Role" class="control-label"> Role</label>
+                <input asp-for="User.Role" class="form-control"  />
+               
+                <span asp-validation-for="User.Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" style="background-color:limegreen;" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

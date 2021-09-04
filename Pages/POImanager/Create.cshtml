@@ -1,0 +1,63 @@
+﻿@page
+@model GeoBAM.Pages.POImanager.CreateModel
+@using System.Security.Claims;
+
+@{
+
+    var longitudee = Request.Form["longitude"];
+
+    var latitudee = Request.Form["latitude"];
+
+    var GeoJsonData = Request.Form["GeoJson"];  
+}
+<h1>@ViewData["Title"]</h1>
+
+
+
+<body>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <h4>Ajouter un nouveau point </h4>
+                <hr />
+                
+
+                <div class="form-group">
+                    <label asp-for="Input.Address">Adresse</label>
+                    <input asp-for="Input.Address" class="form-control" />
+                    <span asp-validation-for="Input.Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.City">Ville</label>
+                    <input asp-for="Input.City" class="form-control" />
+                    <span asp-validation-for="Input.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.PostalCode">Code Postal</label>
+                    <input asp-for="Input.PostalCode" class="form-control" />
+                    <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Input.Datatype"></label>
+                    <input asp-for="Input.Datatype" id="longitude" class="form-control" />
+                    <span asp-validation-for="Input.Datatype" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.GeoJSONdata" hidden></label>
+                    <input asp-for="Input.GeoJSONdata" hidden value="@GeoJsonData" class="form-control" />
+                    <span asp-validation-for="Input.GeoJSONdata" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Type">Catégorie</label>
+                    <input asp-for="Input.Type" class="form-control" />
+                    <span asp-validation-for="Input.Type" class="text-danger"></span>
+                </div>
+
+
+
+                <button type="submit" class="btn btn-success">Ajouter</button>
+            </form>
+        </div>
+    </div>
+</body>

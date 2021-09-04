@@ -1,0 +1,70 @@
+﻿@page
+@model GeoBAM.Pages.POImanager.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>GeoJSONData</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="GeoJSONData.pointID" />
+            <div class="form-group">
+                <label asp-for="GeoJSONData.DataType" class="control-label"></label>
+                <input asp-for="GeoJSONData.DataType" class="form-control" />
+                <span asp-validation-for="GeoJSONData.DataType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeoJSONData.Address" class="control-label"></label>
+                <input asp-for="GeoJSONData.Address" class="form-control" />
+                <span asp-validation-for="GeoJSONData.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeoJSONData.City" class="control-label"></label>
+                <input asp-for="GeoJSONData.City" class="form-control" />
+                <span asp-validation-for="GeoJSONData.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeoJSONData.PostalCode" class="control-label"></label>
+                <input asp-for="GeoJSONData.PostalCode" class="form-control" />
+                <span asp-validation-for="GeoJSONData.PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeoJSONData.GeoJSONdata" class="control-label"></label>
+                <input asp-for="GeoJSONData.GeoJSONdata" class="form-control" />
+                <span asp-validation-for="GeoJSONData.GeoJSONdata" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeoJSONData.Type" class="control-label"></label>
+                <input asp-for="GeoJSONData.Type" class="form-control" />
+                <span asp-validation-for="GeoJSONData.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeoJSONData.DatePrelevement" class="control-label"></label>
+                <input asp-for="GeoJSONData.DatePrelevement" class="form-control" />
+                <span asp-validation-for="GeoJSONData.DatePrelevement" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeoJSONData.ID_Operateur" class="control-label"></label>
+                <input asp-for="GeoJSONData.ID_Operateur" class="form-control" />
+                <span asp-validation-for="GeoJSONData.ID_Operateur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

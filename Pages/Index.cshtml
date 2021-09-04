@@ -1,0 +1,79 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Acceuil";
+
+    Layout = null;
+}
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - GeoBAM</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="~/lib/geoBAMlogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            GéoBAM
+        </a>
+    </nav>
+
+    @{
+        if (User.Identity.IsAuthenticated)
+        {
+        <div class="container col-5 col col-sm-6 align-self-center">
+
+            <h4 style="text-align:center; width:100%; margin-bottom:10%;">Acceuil</h4>
+           
+            <a class="btn  btn-dark " style="width:100%;" role="button" asp-page="/home">Ajouter un point</a>
+            <a class="btn  btn-dark " style="width:100%; margin-top:5%; " role="button" asp-page="/POImanager/Index">Voir mes points</a>
+            @foreach( var claim in User.Claims)
+            {
+                if (claim.Value == "administrateur") {
+                <a class="btn  btn-dark " style="width: 100%; margin-top: 5%; " role="button" asp-page="/UserManager/Index">Gérer les utilisateurs</a>
+                }
+            }
+            <a class="btn  btn-danger " style="width: 100%; margin-top: 5%; " role="button" asp-page="/Logout">Logout</a>
+
+        </div>
+        }
+        else
+        {
+            <div class="container col-5 col col-sm-6 align-self-center">
+
+                <a class="nav-link text-dark" asp-area="" asp-page="/login">
+                    <a class="btn  btn-success " style="width:100%; " role="button" asp-page="/login"> Se connnecter </a>
+                    
+                </a>
+             
+            </div>
+        }
+    }
+
+
+
+
+</body>
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2021 - GéoBAM - <a asp-area="" asp-page="/Privacy">Confidentialité</a>
+    </div>
+</footer>
+</html>
+

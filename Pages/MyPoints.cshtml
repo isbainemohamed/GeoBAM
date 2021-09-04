@@ -1,0 +1,68 @@
+﻿@page
+@model GeoBAM.Pages.MyPointsModel
+@{
+    int counter = 0;
+}
+
+
+
+<table class="table" >
+    <thead>
+        <tr>
+            <th>
+                Numéro
+            </th>
+            <th>
+                Adresse
+            </th>
+            <th>
+                Ville
+            </th>
+            <th>
+                Longitude
+            </th>
+            <th>
+                Latitude
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Date de prélevement
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Points)
+        {
+            counter++;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => counter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Longitude)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Latitude)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatePrelevement)
+                </td>
+                <td>
+                    <a asp-page="MyPoints" asp-page-handler="delete" asp-route-id="@item.pointID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+div

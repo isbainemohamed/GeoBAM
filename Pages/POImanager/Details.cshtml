@@ -1,0 +1,71 @@
+﻿@page
+@model GeoBAM.Pages.POImanager.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Type de Donnée
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GeoJSONData.DataType)
+        </dd>
+        <dt class="col-sm-2">
+            Adresse
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GeoJSONData.Address)
+        </dd>
+        <dt class="col-sm-2">
+            Ville
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GeoJSONData.City)
+        </dd>
+        <dt class="col-sm-2">
+            Code Postal
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GeoJSONData.PostalCode)
+        </dd>
+
+        <dt class="col-sm-2">
+            Catégorie / Type
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GeoJSONData.Type)
+        </dd>
+        <dt class="col-sm-2">
+            Date de Prélèvement
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GeoJSONData.DatePrelevement)
+        </dd>
+        <dt class="col-sm-2">
+            Matricule de l'Operateur
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GeoJSONData.ID_Operateur)
+        </dd>
+        <dt class="col-sm-2">
+            Donnée GoeJSON 
+        </dt>
+        <dd class="col-sm-10">
+           <pre>
+               <code>@Html.DisplayFor(model => model.GeoJSONData.GeoJSONdata)</code>
+</pre>
+            
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.GeoJSONData.pointID">Modifier</a> |
+    <a asp-page="./Index">Revenir à la liste </a>
+</div>

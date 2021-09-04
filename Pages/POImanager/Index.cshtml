@@ -1,0 +1,243 @@
+﻿@page
+@model GeoBAM.Pages.POImanager.IndexModel
+
+@{
+
+    var message = "";
+    var counter = 0;
+    if (@Model.Role == "administrateur")
+    {
+        ViewData["Title"] = "Points Collectés";
+        message = "Voici les points collectés par tous les opérateurs";
+    }
+    else
+    {
+        ViewData["Title"] = "Points collectés";
+        message = "Voici les points que j'ai collecté ";
+    }
+
+}
+
+<h1>Mes points</h1>
+
+<p>
+    <a asp-page="/home">Ajouter un Point</a>
+</p>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
+
+</head>
+
+<!-- Fichiers Javascript -->
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+<script type='text/javascript' src='https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js'></script>
+
+<!--On Ajoute un container div pour afficher la carte NB : la carte DOIT avoir une hauteur sinon elle n'apparaît pas */-->
+
+
+<div id="mapid" style="height:500px;">
+    <!-- Ici d'affichera la carte-->
+</div>
+
+<script>
+
+
+    
+    //importation des données dans une variable POIs. Pour pouvoir les traiter par la suite!
+    var POIs = @Json.Serialize(Model.POIsData);
+    //initialisation de la carte! on définit la vue par défault sur les coordonées du maroc!
+    var map = L.map("mapid").setView([31.62,-7.99], 12),
+        tiles = L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map),
+        markerClusterLayer = L.markerClusterGroup().addTo(map);
+
+    ;
+    // Creation d'un noubeau type de vecteur avec les méthodes getLatLng et setLatLng .
+                //Cette operation est nécéssaire pour qu'on puisse regrouper les polygons, cercles, rectangles et marqueurs dans un seul Clusterer
+    //Pour Les cercles:
+
+    L.CircleClusterable = L.Circle.extend({
+
+        getLatLng: function () {
+            return this._latlng;
+        },
+
+        // dummy method.
+        setLatLng: function () { }
+    });
+
+    //Pour les rectangles:
+    //  Creation d'un noubeau type de vecteur avec les méthodes getLatLng et setLatLng ..
+   
+    L.RectangleClusterable = L.Rectangle.extend({
+        _originalInitialize: L.Rectangle.prototype.initialize,
+
+        initialize: function (bounds, options) {
+            this._originalInitialize(bounds, options);
+            this._latlng = this.getBounds().getCenter(); // On définit le centre du rectangle!
+        },
+
+        getLatLng: function () {
+            return this._latlng;
+        },
+
+        // dummy method.
+        setLatLng: function () { }
+    });
+    ///fin
+    //for plygons
+    L.Polygon.addInitHook(function () {
+        this._latlng = this._bounds.getCenter();
+    });
+
+    // Fournit les latlngs au markerCluster pour pouvoir regrouper les polygons aussi.
+    L.Polygon.include({
+        getLatLng: function () {
+            return this._latlng;
+        },
+        setLatLng: function () { } // Dummy method.
+    });
+    //fin
+
+    
+
+
+    //Prcours de la variable POIs et ajout des elements à la carte:
+    //Pour cela on écrit la fonction getCoordinates, qui permet de:
+            //: Déterminer le type de l'objet passé en parametre(POlygon, cercle, rectangle, marqueur)
+            //: Extraire les coordonnées depuis les données geoJSON associés
+            //: Inverser l'ordre des coordonnées: Dans le fihcier geoJSON, on avait la convention [longitude, latitude], mais pour appeler L.marker.. on aura besoin de [latitude,longitude]!
+            //: Ajouter l'objet au markerClustrer!
+    //Cette fonction prend en parametre: l'oobjet de type POI, et un markerCusterLayer!
+    function getCoordinates(poi, markerClusterLayer) {
+        //On déclare les variables (type, proprietés; et coordonnés)
+        var Type;
+        var properties;
+        var coords = [];    //coordonnées extraites
+        var Coordinates = []; //coordonnées modifiées
+         //On ectracte les données geoJSON de l'objet poi
+        var data = poi.geoJSONdata;
+        //On parcours la variable data pour en extraire un objet JSON utilisable!
+        var geojsondata = JSON.parse(data);
+         //Un petit test selon la structure des données geoJSON
+        if (geojsondata.features == undefined) {
+            Type = geojsondata.geometry.type;
+            coords = geojsondata.geometry.coordinates;
+            properties = geojsondata.properties;
+        }
+        else {
+            Type = geojsondata.features[0].geometry.type;
+            coords = geojsondata.features[0].geometry.coordinates;
+            properties = geojsondata.features[0].properties;
+        }
+       
+        var length = coords.length;
+        if (Type == 'Polygon' && length == 1 && coords[0].length > 0) {
+            for (var i = 0; i < coords[0].length; i++) {
+                var lng = coords[0][i][0];
+                var lat = coords[0][i][1];
+                console.log(lng);
+                Coordinates.push([lat, lng]);
+
+            }
+            //On est devant un polygon:
+            new L.Polygon(Coordinates).addTo(markerClusterLayer).bindPopup("<p>" + poi.address + "</p>  <p>" + poi.city + "</p>  <p>" + poi.postalCode + "</p>  <p>" + poi.type + "</p> ");
+
+        }
+        if (Type == 'Point' && length == 2) {
+            if (properties.radius != undefined) {
+                var lng = coords[0];
+                var lat = coords[1];
+                var radius = properties.radius;
+                Coordinates = [lat, lng, radius];
+                //On es devant un cercle:
+                new L.CircleClusterable([Coordinates[0], Coordinates[1]], Coordinates[2]).addTo(markerClusterLayer).bindPopup("<p>" + poi.address + "</p>  <p>" + poi.city + "</p>  <p>" + poi.postalCode + "</p>  <p>" + poi.type + "</p> ");
+            }
+            else {
+                var lng = coords[0];
+                var lat = coords[1];
+
+                Coordinates = [lat, lng];
+                //On est devant un point simple:
+                new L.marker(Coordinates).addTo(markerClusterLayer).bindPopup("<p>" + poi.address + "</p>  <p>" + poi.city + "</p>  <p>" + poi.postalCode + "</p>  <p>" + poi.type + "</p> ");
+                
+            }
+        }
+
+
+    }
+
+    //On fait une boucle pour parcourir POIs:
+    for (poi in POIs) {
+        //On appelle a fonction décrite ci-dessus, en lui passant en parametre l'objet courant et le markerClusterLayer
+        getCoordinates(POIs[poi], markerClusterLayer);
+    }
+       
+    
+</script>
+
+<!--fin-->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Numéro
+            </th>
+            <th>
+                Type de donnée
+            </th>
+            <th>
+                Adresse
+            </th>
+            <th>
+                Ville
+            </th>
+            <th>
+                Code Postal
+            </th>
+
+            <th>
+                Catégorie
+            </th>
+
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.POIsData)
+        {
+            counter++;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => counter)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostalCode)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.pointID">Modifier</a> |
+                    <a asp-page="./Details" asp-route-id="@item.pointID">Détails</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.pointID">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

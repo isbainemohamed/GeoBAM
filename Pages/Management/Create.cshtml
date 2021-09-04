@@ -1,0 +1,64 @@
+﻿@page
+@model GeoBAM.Pages.Management.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>GeometricPoint</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GeometricPoint.Address" class="control-label"></label>
+                <input asp-for="GeometricPoint.Address" class="form-control" />
+                <span asp-validation-for="GeometricPoint.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeometricPoint.City" class="control-label"></label>
+                <input asp-for="GeometricPoint.City" class="form-control" />
+                <span asp-validation-for="GeometricPoint.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeometricPoint.Longitude" class="control-label"></label>
+                <input asp-for="GeometricPoint.Longitude" class="form-control" />
+                <span asp-validation-for="GeometricPoint.Longitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeometricPoint.Latitude" class="control-label"></label>
+                <input asp-for="GeometricPoint.Latitude" class="form-control" />
+                <span asp-validation-for="GeometricPoint.Latitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeometricPoint.Type" class="control-label"></label>
+                <input asp-for="GeometricPoint.Type" class="form-control" />
+                <span asp-validation-for="GeometricPoint.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeometricPoint.DatePrelevement" class="control-label"></label>
+                <input asp-for="GeometricPoint.DatePrelevement" class="form-control" />
+                <span asp-validation-for="GeometricPoint.DatePrelevement" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GeometricPoint.ID_Operateur" class="control-label"></label>
+                <input asp-for="GeometricPoint.ID_Operateur" class="form-control" />
+                <span asp-validation-for="GeometricPoint.ID_Operateur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

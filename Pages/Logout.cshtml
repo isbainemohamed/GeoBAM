@@ -1,0 +1,35 @@
+﻿@page
+@model GeoBAM.Pages.LogoutModel
+@{      if(!User.Identity.IsAuthenticated){
+        Layout = null;
+        ViewData["Title"] = "Se décoonecter";
+    }
+    ViewData["Title"] = "Redirigé vers l'Acceuil";
+}
+<header>
+    <h1>@ViewData["Se déconnecter"]</h1>
+    @{
+        if (User.Identity.IsAuthenticated)
+        {
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <button type="submit" class="nav-link btn btn-link text-dark">Cliquez ici pour se déconnecter</button>
+            </form>
+            <table class="table table-sm">
+                @foreach (var claim in User.Claims)
+                {
+                    <tr>
+                        <td>@claim.Type</td>
+                        <td>@claim.Value</td>
+                        
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>Vous vous etes déconnecté avec succès! </p>
+            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Revenir à l'Acceuil</a>
+        }
+    }
+    
+</header>

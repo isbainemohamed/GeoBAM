@@ -1,0 +1,56 @@
+﻿@page
+@model GeoBAM.Pages.AddPointModel
+@using System.Security.Claims;
+
+@{
+
+    var longitudee = Request.Form["longitude"];
+
+    var latitudee = Request.Form["latitude"];
+}
+<h1>@ViewData["Title"]</h1>
+
+<h1>@ViewData["Title"]</h1>
+
+<body >
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <h4>Ajouter un nouveau point </h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Input.Address"></label>
+                    <input asp-for="Input.Address" class="form-control" />
+                    <span asp-validation-for="Input.Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.City"></label>
+                    <input asp-for="Input.City" class="form-control" />
+                    <span asp-validation-for="Input.City" class="text-danger"></span>
+                </div>
+s
+                <div class="form-group">
+                    <label asp-for="Input.Longitude"></label>
+                    <input asp-for="Input.Longitude" id="longitude" value=@longitudee class="form-control" />
+                    <span asp-validation-for="Input.Longitude" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Latitude"></label>
+                    <input asp-for="Input.Latitude" id="latitude" value=@latitudee class="form-control" />
+                    <span asp-validation-for="Input.Latitude" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Type"></label>
+                    <input asp-for="Input.Type" class="form-control" />
+                    <span asp-validation-for="Input.Type" class="text-danger"></span>
+                </div>
+
+
+
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
