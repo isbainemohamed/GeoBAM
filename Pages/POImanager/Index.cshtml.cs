@@ -8,8 +8,16 @@ using Microsoft.EntityFrameworkCore;
 using GeoBAM.Data;
 using System.Security.Claims;
 
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Web;
+
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+
 namespace GeoBAM.Pages.POImanager
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly GeoBAM.Data.ApplicationDbContext _context;

@@ -2,41 +2,41 @@
 @model GeoBAM.Pages.UserManager.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Infos";
 }
 
-<h1>Details</h1>
+<h1>Détails</h1>
 
 <div>
-    <h4>User</h4>
+    
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.FirstName)
+            Prénom
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.User.FirstName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.LastName)
+            Nom
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.User.LastName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.Email)
+           Adresse Email
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.User.Email)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.Password)
+            Mot de passe 
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.User.Password)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.User.Role)
+            Role
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.User.Role)
@@ -44,6 +44,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.User.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit"   asp-route-id="@Model.User.Id">Modifier </a> |
+    <a asp-page="./Index">revenir à la liste</a>
 </div>

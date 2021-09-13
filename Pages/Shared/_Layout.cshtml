@@ -12,7 +12,8 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">GeoBAM</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="~/lib/geoBAMlogo.png" width="30" height="30" class="d-inline-block align-top" alt=""> GéoBAM</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -22,24 +23,21 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Acceuil</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Confidentialité</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Home">Ajouter un point</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AddPoint">Ajouter un Point</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/POImanager/Index">voir les points ajoutés</a>
                         </li>
-                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/UserManager/Index">voir mes Points</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Confidentialité</a>
                         </li>
-                        
-                        
+
+
+
+
                     </ul>
                     <a class="btn navbar-btn btn-danger navbar-right pull-right" role="button"  asp-page="/Logout">Logout</a>
 

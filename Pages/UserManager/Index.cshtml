@@ -2,31 +2,28 @@
 @model GeoBAM.Pages.UserManager.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Liste des utilisateurs";
 }
 
-<h1>Index</h1>
+<h1>Liste des utilisateurs</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Ajouter un nouveau utilisateur</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].FirstName)
+                Prénom
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].LastName)
+                Nom
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.User[0].Email)
+                Email
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Password)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.User[0].Role)
+            
+            <th>Role
             </th>
             <th></th>
         </tr>
@@ -43,16 +40,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Password)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.Role)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Modifier</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Détails</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Supprimer</a>
             </td>
         </tr>
 }

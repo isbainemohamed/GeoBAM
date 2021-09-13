@@ -55,6 +55,7 @@ namespace GeoBAM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //On ajoute le service RazorPages pour pouvoir travailler avec le moteur Razor
             services.AddRazorPages();
             //On ajoute les services de Session.
             services.AddSession();

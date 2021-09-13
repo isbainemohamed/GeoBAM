@@ -27,10 +27,22 @@
         <!--On écrit le script javascript pour la gestion de la carte  -->
         <script>
             // Déclaration d'une variable map, pour pouvoir initialiser notre carte!
-            var map = L.map('map').setView([31.79230, -7.08016], 12);  //SetView sert à définir la vue initiale
-            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            }).addTo(map);
+            var map = L.map('map').setView([31.792306, -7.080168], 6);  //SetView sert à définir la vue initiale
+            //On ajoute le layer control
+            var osm = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"),
+                mqi = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}");
+
+            var baseMaps = {
+                "OpenStreetMap": osm,
+                "MapQuestImagery": mqi
+            };
+
+            var overlays = {//add any overlays here
+
+            };
+
+            L.control.layers(baseMaps, overlays, { position: 'bottomleft' }).addTo(map);
+           
             // FeatureGroup pour stocker les couches modifiables !
             var drawnItems = new L.FeatureGroup();
             map.addLayer(drawnItems);

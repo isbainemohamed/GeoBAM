@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GeoBAM.Data
 {
+
     public class GeometricPoint
     {
         [Key]
