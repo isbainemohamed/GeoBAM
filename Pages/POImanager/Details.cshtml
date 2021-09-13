@@ -5,7 +5,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Détails</h1>
 
 <div>
     
@@ -37,7 +37,7 @@
         </dd>
 
         <dt class="col-sm-2">
-            Catégorie / Type
+            Catégorie
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.GeoJSONData.Type)
@@ -49,13 +49,13 @@
             @Html.DisplayFor(model => model.GeoJSONData.DatePrelevement)
         </dd>
         <dt class="col-sm-2">
-            Matricule de l'Operateur
+            Id. operateur
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.GeoJSONData.ID_Operateur)
         </dd>
         <dt class="col-sm-2">
-            Donnée GoeJSON 
+            Données GoeJSON 
         </dt>
         <dd class="col-sm-10">
            <pre>
@@ -66,6 +66,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.GeoJSONData.pointID">Modifier</a> |
+    <a asp-page="./Edit"   asp-route-id="@Model.GeoJSONData.pointID">Modifier</a> |
     <a asp-page="./Index">Revenir à la liste </a>
 </div>

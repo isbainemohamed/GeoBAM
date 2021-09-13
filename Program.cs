@@ -15,7 +15,7 @@ namespace GeoBAM
         {
             CreateHostBuilder(args).Build().Run();
         }
-
+        //instanciation du IHostBuilder
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

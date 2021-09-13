@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <Content Remove="Pages\login.cshtml" />
-    <Content Remove="Pages\MyPoints.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,16 +33,10 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\login.cshtml" />
-    <_ContentIncludedByDefault Remove="Pages\MyPoints.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Pages\login.cshtml" />
-    <None Include="Pages\MyPoints.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\MyPoints.cshtml" />
   </ItemGroup>
 
 </Project>

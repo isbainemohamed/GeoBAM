@@ -7,8 +7,16 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using GeoBAM.Data;
 
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Web;
+
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+
 namespace GeoBAM.Pages.UserManager
 {
+    [Authorize]
     public class CreateModel : PageModel
     {
         private readonly GeoBAM.Data.ApplicationDbContext _context;

@@ -8,8 +8,16 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GeoBAM.Data;
 
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Web;
+
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+
 namespace GeoBAM.Pages.UserManager
 {
+    [Authorize]
     public class EditModel : PageModel
     {
         private readonly GeoBAM.Data.ApplicationDbContext _context;

@@ -36,7 +36,7 @@
 
 <!--On Ajoute un container div pour afficher la carte NB : la carte DOIT avoir une hauteur sinon elle n'apparaît pas */-->
 
-
+<h5>@message</h5>
 <div id="mapid" style="height:500px;">
     <!-- Ici d'affichera la carte-->
 </div>
@@ -48,7 +48,7 @@
     //importation des données dans une variable POIs. Pour pouvoir les traiter par la suite!
     var POIs = @Json.Serialize(Model.POIsData);
     //initialisation de la carte! on définit la vue par défault sur les coordonées du maroc!
-    var map = L.map("mapid").setView([31.62,-7.99], 12),
+    var map = L.map("mapid").setView([31.792306, -7.080168], 6),
         tiles = L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map),

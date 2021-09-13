@@ -2,7 +2,7 @@
 @model GeoBAM.Pages.UserManager.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Modifier";
 }
 
 <h1>Edit</h1>
@@ -15,39 +15,39 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="User.Id" />
             <div class="form-group">
-                <label asp-for="User.FirstName" class="control-label"></label>
+                <label asp-for="User.FirstName" class="control-label">Nom</label>
                 <input asp-for="User.FirstName" class="form-control" />
                 <span asp-validation-for="User.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.LastName" class="control-label"></label>
+                <label asp-for="User.LastName" class="control-label">Prénom</label>
                 <input asp-for="User.LastName" class="form-control" />
                 <span asp-validation-for="User.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Email" class="control-label"></label>
+                <label asp-for="User.Email" class="control-label">Adresse Mail</label>
                 <input asp-for="User.Email" class="form-control" />
                 <span asp-validation-for="User.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Password" class="control-label"></label>
+                <label asp-for="User.Password" class="control-label">Mot de passe</label>
                 <input asp-for="User.Password" class="form-control" />
                 <span asp-validation-for="User.Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="User.Role" class="control-label"></label>
+                <label asp-for="User.Role" class="control-label">Role</label>
                 <input asp-for="User.Role" class="form-control" />
                 <span asp-validation-for="User.Role" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Enregistrer"  style="background-color:lawngreen;" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">revenir à la liste </a>
 </div>
 
 @section Scripts {

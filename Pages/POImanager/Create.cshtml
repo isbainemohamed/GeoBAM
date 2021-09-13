@@ -3,7 +3,7 @@
 @using System.Security.Claims;
 
 @{
-
+    //récupération des données envoyer de la page 'Ajouter un point'
     var longitudee = Request.Form["longitude"];
 
     var latitudee = Request.Form["latitude"];
@@ -15,6 +15,7 @@
 
 
 <body>
+    <!-- formulaire pour la saisie des informations sur le POI-->
     <div class="row">
         <div class="col-md-4">
             <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
