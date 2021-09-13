@@ -14,7 +14,7 @@ Le moteur Razor est fluide, compact, expressif et s'appuie sur la syntaxe des la
 En plus de ça, on a utilisé la framework <strong>Entity FrameWork</strong> , qui est une technologie ORM (Objet Rea ayant pour but de faciliter l'accès à une source de données sans  avoir la sensation de travailler avec une base de données. Cela paraît étrange, mais signifie simplement que grâce à cet ORM (Objet-Relationnel Mapping), nous n’allons plus écrire de requêtes, ni créer de tables, etc., via un système de gestion de base de données mais directement manipuler les données dans notre code C#.
 Vu que notre application doit assurer la gestion des points d'adresses, ainsi que l'accès des utilisateurs (operateurs et administrateurs), il a été nécéssaire de passer par le modèle CRUD (Create, Read,Update, Delete) qui permet la gestion des données.
 Et finalement, Mysql Server qui sert comme un serveur de base de données.  
-L'application GéoBAM utilise le fond cartographique OpenStreetMap, pour pouvoir ajouter et afficher les points d'adresses. cette intégration de cartes se fait à l'aide d'une API javascript appelée <h2>Leaflet<h2>. Leaflet est une bibliothèque JavaScript libre de cartographie en ligne développée par Vladimir Agafonkin de CloudMade et de nombreux contributeurs.
+L'application GéoBAM utilise le fond cartographique OpenStreetMap, pour pouvoir ajouter et afficher les points d'adresses. cette intégration de cartes se fait à l'aide d'une API javascript appelée <strong>Leaflet<strong>.Leaflet est une bibliothèque JavaScript libre de cartographie en ligne développée par Vladimir Agafonkin de CloudMade et de nombreux contributeurs.
 
  
 
