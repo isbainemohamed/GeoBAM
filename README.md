@@ -1804,6 +1804,18 @@ Concernant le dossier *Pages/UserManager* , il est aussi généré à l'aide du 
 
 ```
 
+			
+## Deploiment de l'application:
+Pour déployer l'application GéoBAM sur un serveur prenant en charge ASP.NET, il suffit de suivre les étapes suivante: 
+### Etape 1:  Préparer une base de données:
+La préparation d'une base de données est primordial. Vous devez créer une base de doonées en s'apppuyant sur le fichier de backup GeoBAMDB.bak dont on a parlé précédemment.
+Ensuite il faut générer la chaine de connexion spécifique à cette base de données pour pouvoir lier le projet avec cette DB.
+
+### Etape2: 
+ Ouvrir MS VS 2019, allez vers *Solution Explorer* et cliquez droit sur GeoBAM: cliquez sur *Publish* 
+			
+![screen](https://github.com/isbainemohamed/GeoBAM/blob/master/image7png).
+
 ## Contributions et webographie
 * StackOverflow
 * Github/Leaflet
