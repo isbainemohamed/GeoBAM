@@ -28,10 +28,11 @@ L'application GéoBAM utilise le fond cartographique OpenStreetMap, pour pouvoir
 ## Ouverture du peojet en MS visual studio 2019
 Après avoir installer Ms Visual studio et Ms Sql Server. Il est temps d'importer le projet sur notre machine:
 Le repository github contient le code complet du projet. Et donc il suffit de le télécharger en format zip. puis le décompresser.
-screen zip file
 Ensuite, vous  devez  préparer le serveur de données en créant la base de données GeoBAMDB sur le serveur local MS SQL server.
 Ouvrez Le SQL SERVER MANAGEMENT STUDIO SSMS, Dans *l' Explorateur d'objets* (Object solution) , connectez-vous à une instance du Moteur de base de données          SQL Server et développez-la. Cliquez avec le bouton droit sur *Databases*(Bases de données) et sélectionnez *Restore database* (Restaurer la base de données).
-Dans la page *General* (Général) , utilisez la section *Source* pour préciser la source et l'emplacement des jeux de sauvegarde à restaurer, séléctionnez *Device*, ensuite spécifiez l'enmplacement du backup (le fichier  GeoBAMDB.bak contenu dans le repository). Après, le nom de la base de données est automatiquement généré ( à ne pas changer) et inalement cliquez sur OK. 
+Dans la page *General* (Général):
+![screen](https://github.com/isbainemohamed/testtt/blob/main/image3.png)
+utilisez la section *Source* pour préciser la source et l'emplacement des jeux de sauvegarde à restaurer, séléctionnez *Device*, ensuite spécifiez l'enmplacement du backup (le fichier  GeoBAMDB.bak contenu dans le repository). Après, le nom de la base de données est automatiquement généré ( à ne pas changer) et inalement cliquez sur OK. 
 Maintenant, la base de données est prete à utiliser.
 Ouvrez maintenant le MS VS 2019 :
 Une écran comme la suivante s'affichera, puis séléctionnez l'option :
