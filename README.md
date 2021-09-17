@@ -1,6 +1,6 @@
 # Présentation de GéoBAM
 
-GéoBAM est une application web multi-platforme, interactive et pratique. Cette application est dédiée à la géolocalisation des points d'adresses et les stocker dans une base de données interne. Les points collectés sont intégrés dans une carte, qui servira le personnel de Barid Al Maghrib par la suite.
+GéoBAM est une application web multi-platforme, interactive et pratique. Cette application est dédiée à la géolocalisation des points d'adresses et les stocker dans une base de données interne. Les points collectés sont rajoutés à une carte interactive.
 
 ## Outils utilisés
  GéoBAM a été développée en utilisant la framework ASP.NET Core Razor Pages. ASP.NET Core est une infrastructure multiplateforme, à hautes performances et open source pour la création d’applications modernes, basées sur le cloud et connectées à Internet.Cette Framework permet de:
@@ -8,13 +8,13 @@ GéoBAM est une application web multi-platforme, interactive et pratique. Cette 
  * Utiliser vos outils de développement préférés sur Windows, macOS et Linux.
  * Déployer dans le cloud ou localement.
  * Exécutez sur .net Core.
-Razor a été conçu pour faciliter la conception des pages ASP.NET. Il introduit une syntaxe de programmation assez facilement compréhensible, qui permet d'insérer du code serveur dans une page Web qui peut également contenir du HTML, du CSS et des scripts JavaScript.
+La technologie Razor a été conçu pour faciliter la conception des pages ASP.NET. Elle introduit une syntaxe de programmation assez facilement compréhensible, qui permet d'insérer du code serveur dans une page Web qui peut également contenir du HTML, du CSS et des scripts JavaScript.
 
 Le moteur Razor est fluide, compact, expressif et s'appuie sur la syntaxe des langages .NET C# et Visual Basic .NET. Il offre la puissance d'ASP.NET pour la création rapide des applications Web fonctionnelles et sophistiquées. 
 En plus de ça, on a utilisé la framework <strong>Entity FrameWork</strong> , qui est une technologie ORM (Objet Rea ayant pour but de faciliter l'accès à une source de données sans  avoir la sensation de travailler avec une base de données. Cela paraît étrange, mais signifie simplement que grâce à cet ORM (Objet-Relationnel Mapping), nous n’allons plus écrire de requêtes, ni créer de tables, etc., via un système de gestion de base de données mais directement manipuler les données dans notre code C#.
-Vu que notre application doit assurer la gestion des points d'adresses, ainsi que l'accès des utilisateurs (operateurs et administrateurs), il a été nécéssaire de passer par le modèle CRUD (Create, Read,Update, Delete) qui permet la gestion des données.
+Vu que notre application doit assurer la gestion des points d'adresses, ainsi que l'accès des utilisateurs (operateurs et administrateurs), il a été nécéssaire de passer par le modèle CRUD (Create, Read,Update, Delete) qui permet la gestion des données. Le modèle CRUD permet de générer automatiquement quatre pages Razor ( front-en et back-end) qui servent à manipuler les données d'une table SQL.
 Et finalement, Mysql Server qui sert comme un serveur de base de données.  
-L'application GéoBAM utilise le fond cartographique OpenStreetMap, pour pouvoir ajouter et afficher les points d'adresses. cette intégration de cartes se fait à l'aide d'une API javascript appelée <strong>Leaflet<strong>.Leaflet est une bibliothèque JavaScript libre de cartographie en ligne développée par Vladimir Agafonkin de CloudMade et de nombreux contributeurs.
+L'application GéoBAM utilise le fond cartographique OpenStreetMap, pour pouvoir ajouter et afficher les points d'adresses. cette intégration de cartes se fait à l'aide d'une API javascript appelée <strong>Leaflet<strong>.Leaflet est une bibliothèque JavaScript pour la création de cartes intéractives dans navigateur web ou un environnement mobile. Elle est légère, mais possède toutes les caractéristiques dont la plupart des développeurs ont besoin pour créer des cartes en ligne. Leaflet est conçu avec la simplicité, la performance et la convivialité à l’esprit.
 
  
 
@@ -25,9 +25,13 @@ L'application GéoBAM utilise le fond cartographique OpenStreetMap, pour pouvoir
 * <h2>Microsoft SQL Server 2019 :<h2>
  Pour avoir un serveur de base de données sur notre machine, on doit installer  SQL server 2019.[Cliquez ici pour le télécharger](https://www.microsoft.com/en-us/sql-server/sql-server-downloads). 
 
-
-
-
+## Ouverture du peojet en MS visual studio 2019
+	Après avoir installer Ms Visual studio et Ms Sql Server. Il est temps d'importer le projet sur notre machine:
+	Le repository github contient le code complet du projet. Et donc il suffit de le télécharger en format zip. puis le décompresser.
+	screen zip file
+	 Ensuite, vous  devez  préparer le serveur de données en créant la base de données GeoBAMDB sur le serveur local MS SQL server.
+	Ouvrez Le SQL SERVER MANAGEMENT STUDIO SSMS, Dans *l' Explorateur d'objets* (Object solution) , connectez-vous à une instance du Moteur de base de données          SQL Server et développez-la. Cliquez avec le bouton droit sur *Databases*(Bases de données) et sélectionnez *Restore database* (Restaurer la base de données).
+       Dans la page *General* (Général) , utilisez la section *Source* pour préciser la source et l'emplacement des jeux de sauvegarde à restaurer (le fichier       	    GeoBAMDB.bak contenu dans le repository) , on Sélectionnez l’une des options Sauvegarde de la base de données
 ## Description du code
  Après avoir installer Microsoft Visual Studio 2019,On suit les étapes suivantes:
  ### Etape1: On Ouvre le projet ASP.Net Web App Core :
