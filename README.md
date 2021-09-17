@@ -26,17 +26,21 @@ L'application GéoBAM utilise le fond cartographique OpenStreetMap, pour pouvoir
  Pour avoir un serveur de base de données sur notre machine, on doit installer  SQL server 2019.[Cliquez ici pour le télécharger](https://www.microsoft.com/en-us/sql-server/sql-server-downloads). 
 
 ## Ouverture du peojet en MS visual studio 2019
-	Après avoir installer Ms Visual studio et Ms Sql Server. Il est temps d'importer le projet sur notre machine:
-	Le repository github contient le code complet du projet. Et donc il suffit de le télécharger en format zip. puis le décompresser.
-	screen zip file
-	 Ensuite, vous  devez  préparer le serveur de données en créant la base de données GeoBAMDB sur le serveur local MS SQL server.
-	Ouvrez Le SQL SERVER MANAGEMENT STUDIO SSMS, Dans *l' Explorateur d'objets* (Object solution) , connectez-vous à une instance du Moteur de base de données          SQL Server et développez-la. Cliquez avec le bouton droit sur *Databases*(Bases de données) et sélectionnez *Restore database* (Restaurer la base de données).
-       Dans la page *General* (Général) , utilisez la section *Source* pour préciser la source et l'emplacement des jeux de sauvegarde à restaurer (le fichier       	    GeoBAMDB.bak contenu dans le repository) , on Sélectionnez l’une des options Sauvegarde de la base de données
+Après avoir installer Ms Visual studio et Ms Sql Server. Il est temps d'importer le projet sur notre machine:
+Le repository github contient le code complet du projet. Et donc il suffit de le télécharger en format zip. puis le décompresser.
+screen zip file
+Ensuite, vous  devez  préparer le serveur de données en créant la base de données GeoBAMDB sur le serveur local MS SQL server.
+Ouvrez Le SQL SERVER MANAGEMENT STUDIO SSMS, Dans *l' Explorateur d'objets* (Object solution) , connectez-vous à une instance du Moteur de base de données          SQL Server et développez-la. Cliquez avec le bouton droit sur *Databases*(Bases de données) et sélectionnez *Restore database* (Restaurer la base de données).
+Dans la page *General* (Général) , utilisez la section *Source* pour préciser la source et l'emplacement des jeux de sauvegarde à restaurer, séléctionnez *Device*, ensuite spécifiez l'enmplacement du backup (le fichier  GeoBAMDB.bak contenu dans le repository). Après, le nom de la base de données est automatiquement généré ( à ne pas changer) et inalement cliquez sur OK. 
+Maintenant, la base de données est prete à utiliser.
+Ouvrez maintenant le MS VS 2019 :
+Une écran comme la suivante s'affichera, puis séléctionnez l'option :
+	screen ouverture:
+le projet s'ouvre automatiquement, et vous pouvez directement lancer l'application sur votre machine (Serveur IIS).
 ## Description du code
- Après avoir installer Microsoft Visual Studio 2019,On suit les étapes suivantes:
- ### Etape1: On Ouvre le projet ASP.Net Web App Core :
+ Après avoir deployer le projet localement, il est temps de décrire le code et l'expliquer.
  
- ![screen1](https://github.com/isbainemohamed/testtt/blob/main/screen1%20creation%20projet.png)
+ On commence par décrire l'arborescence du projet.
  ### Description de l'arborescence du projet: 'solution Explorer'
  ![screen](https://github.com/isbainemohamed/testtt/blob/main/solution%20explorer.png)
  
@@ -69,7 +73,7 @@ Ce bloc contient l'ensemble des fichiers du projets.
 	- La page 'login' est la page de connexion de l'utilisateur.
 	- La page 'Logout' est la page de deconnexion.
 	- La 'Privacy' contient les conditions d'utilisation et les politiques du site.
-	- Le fichier 'AppSettings.json' est un fichier de configuration de l'application, contenant les connextion avec les bases de données...
+	- Le fichier 'AppSettings.json' est un fichier de configuration de l'application, contenant la *connexion String* (chaine de connexion) qui est une chaîne 	   qui spécifie des informations sur une source de données et les moyens de s'y connecter avec les bases de données...
 	- La classe 'Program.cs' : est le point de demarrage de l'application , parmi ses roles ; instancier le IWebHost qui heberge l'application.
 	- La classe 'Startup.cs' est une classe qui est appelé directement apres Program.cs, elle permet de déclarer les services qu'utilisera l'application.
 
