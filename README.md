@@ -1,7 +1,16 @@
 # Présentation de GéoBAM
 
-GéoBAM est une application web multi-platforme, interactive et pratique. Cette application est dédiée à la géolocalisation des points d'adresses et les stocker dans une base de données interne. Les points collectés sont rajoutés à une carte interactive.
+GéoBAM est une application web multi-platforme, interactive et pratique. Cette application est dédiée à la géolocalisation des points d'adresses et les stocker dans une base de données interne. Les points collectés sont rajoutés à une carte interactive.  
 
+*<h3>PLAN<h3>* 
+ 1. Outils utilisés
+ 2. Installations à faire
+ 3. Ouverture du projet en MS visual studio 2019
+ 4. Description du code
+ 5. Déploiment de l'application
+ 6. Webographie
+ 7. License 
+ 
 ## Outils utilisés
  GéoBAM a été développée en utilisant la framework ASP.NET Core Razor Pages. ASP.NET Core est une infrastructure multiplateforme, à hautes performances et open source pour la création d’applications modernes, basées sur le cloud et connectées à Internet.Cette Framework permet de:
  * Créer des applications et services Web, des applications d'Internet des objets (IOT) et des serveurs principaux mobiles.
@@ -25,7 +34,7 @@ L'application GéoBAM utilise le fond cartographique OpenStreetMap, pour pouvoir
 * <h2>Microsoft SQL Server 2019 :<h2>
  Pour avoir un serveur de base de données sur notre machine, on doit installer  SQL server 2019.[Cliquez ici pour le télécharger](https://www.microsoft.com/en-us/sql-server/sql-server-downloads). 
 
-## Ouverture du peojet en MS visual studio 2019
+## Ouverture du projet en MS visual studio 2019
 Après avoir installer Ms Visual studio et Ms Sql Server. Il est temps d'importer le projet sur notre machine:
 Le repository github contient le code complet du projet. Et donc il suffit de le télécharger en format zip. puis le décompresser.
 Ensuite, vous  devez  préparer le serveur de données en créant la base de données GeoBAMDB sur le serveur local MS SQL server.
@@ -1805,7 +1814,7 @@ Concernant le dossier *Pages/UserManager* , il est aussi généré à l'aide du 
 ```
 
 			
-## Deploiment de l'application:
+## Déploiment de l'application:
 Pour déployer l'application GéoBAM sur un serveur prenant en charge ASP.NET, il suffit de suivre les étapes suivante: 
 ### Etape 1:  Préparer une base de données:
 La préparation d'une base de données est primordial. Vous devez créer une base de doonées en s'apppuyant sur le fichier de backup GeoBAMDB.bak dont on a parlé précédemment.
@@ -1814,16 +1823,30 @@ Ensuite il faut générer la chaine de connexion spécifique à cette base de do
 ### Etape2: 
  Ouvrir MS VS 2019, allez vers *Solution Explorer* et cliquez droit sur GeoBAM: cliquez sur *Publish* 
 			
-![screen](https://github.com/isbainemohamed/GeoBAM/blob/master/image7png).
+![screen](https://github.com/isbainemohamed/GeoBAM/blob/master/image7.gif).
 
-## Contributions et webographie
+Ensuite, il suffit de choisir le mode d'hébergement.Dans notre cas, on choisira un serveur ftp: 
+Une nouvelle fenetre s'ouvre comme suit: 
+![screen](https://github.com/isbainemohamed/GeoBAM/blob/master/publish%20ftp.png).
+			
+Il suffit de remplir des informations sur le serveur d'accueil et cliquer sur *save*: 
+à ce moment là, on doit assurer la connexion avec la nouvelle base de données sur le serveur. Cette opération consiste à passer en parametre la chaine de connexion dont on a parlé durant l'étape1: 
+			
+![screen](https://github.com/isbainemohamed/GeoBAM/blob/master/pulis%20connection%20string.png). 
+ Et finalement, il est temps de publier le site web en cliquant sur publish: 
+
+ Notre site maintenant est bien hébérgé !
+			
+## webographie
 * StackOverflow
 * Github/Leaflet
 * CsharpCorner
 * Learn Razor Pages
+* Documentation officielle de microsoft
+
 
 
 
 
 ## License
-<h1>GéoBAM 2021<h1>
+<h1>GéoBAM-2021<h1>
