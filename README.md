@@ -28,30 +28,32 @@ Vu que notre application doit assurer la gestion des points d'adresses, ainsi qu
 
 Le stockage de données est assuré par un <strong>SGBD</strong> ,qui  est un logiciel système servant à stocker, à manipuler ou gérer, et à partager des données dans une base de données, en garantissant la qualité, la pérennité et la confidentialité des informations, tout en cachant la complexité des opérations. Dans notre cas on a choisit <strong>Microsoft SQL Server 2019</strong> qui sert comme un serveur de base de données.  
 
-L'application GéoBAM utilise le <strong>fond cartographique OpenStreetMap</strong>, pour pouvoir ajouter et afficher les points d'adresses. cette intégration de cartes se fait à l'aide d'une API javascript appelée . 
+L'application GéoBAM utilise le <strong>fond cartographique OpenStreetMap</strong>, pour pouvoir ajouter et afficher les points d'adresses. cette intégration de cartes se fait à l'aide d'une API javascript appelée Leaflet. 
+
 	
-Leaflet est une bibliothèque JavaScript pour la création de cartes intéractives dans navigateur web ou un environnement mobile. Elle est légère, mais possède toutes les caractéristiques dont la plupart des développeurs ont besoin pour créer des cartes en ligne. Leaflet est conçu avec la simplicité, la performance et la convivialité à l’esprit.
+<strong>Leaflet</strong> est une bibliothèque JavaScript pour la création de cartes intéractives dans un navigateur web ou un environnement mobile. Elle est légère, mais possède toutes les caractéristiques dont la plupart des développeurs ont besoin pour créer des cartes en ligne. Leaflet est conçu avec la simplicité, la performance et la convivialité à l’esprit. 
 
  
 
 ## Installations à faire: 
 
 1. <h2>Microsoft Visual studio 2019 :<h2> 
-	
 Pour pouvoir travailler avec .NET généralement , il est conseillé d'utiliser <strong>Microsoft Visual Studio</strong>, qui est une suite de logiciels de développement  pour Windows et mac OS conçue par Microsoft. La dernière version s'appelle Visual Studio 2019.Visual Studio est un ensemble complet d'outils de développement permettant de générer des applications web ASP.NET, des services web XML, des applications bureautiques et des applications mobiles.
-  [ le télécharger ici](https://visualstudio.microsoft.com/fr/vs/). 
+  [ cliquez ici pour le télécharger ici](https://visualstudio.microsoft.com/fr/vs/). 
 	
 2. <h2>Microsoft SQL Server 2019 :<h2> 
-	
 Pour avoir un serveur de base de données sur notre machine, on doit installer  SQL server 2019.[Cliquez ici pour le télécharger](https://www.microsoft.com/en-us/sql-server/sql-server-downloads). 
 	
 
 ## Ouverture du projet avec MS visual studio 2019: 
 
 
-Après avoir installer Ms Visual studio et Ms Sql Server. Il est temps d'importer le projet sur notre machine:
-Le repository github contient le code complet du projet. Et donc il suffit de le télécharger en format zip. puis le décompresser.
-Ensuite, vous  devez  préparer le serveur de données en créant la base de données GeoBAMDB sur le serveur local MS SQL server.
+Après avoir installer Ms Visual studio et Ms Sql Server. Il est temps d'importer le projet sur notre machine: 
+
+Le repository github contient le code complet du projet. Et donc il suffit de le télécharger en format zip. puis le décompresser dans un dossier. 
+
+Ensuite, vous  devez  préparer le serveur de données en créant la base de données GeoBAMDB sur le serveur local MS SQL server. Pour ce faire suivez les étapes suivantes: 
+
 Ouvrez Le SQL SERVER MANAGEMENT STUDIO SSMS, Dans *l' Explorateur d'objets* (Object solution) , connectez-vous à une instance du Moteur de base de données          SQL Server et développez-la. Cliquez avec le bouton droit sur *Databases*(Bases de données) et sélectionnez *Restore database* (Restaurer la base de données).
 Dans la page *General* (Général): séléctionnez *Device* puis cliquez sur les trois points à droite, une fenetre s'affichera comme suit:
 	
@@ -61,10 +63,12 @@ Cliquez sur -Add- et spécifiez l'emplacement du fichier GeoBAMDB.bak :
 	
 ![screen](https://github.com/isbainemohamed/GeoBAM/blob/master/image4.png)  
 	
-Cliqyze sur Ok. Après, le nom de la base de données est automatiquement généré ( à ne pas changer) et finalement cliquez sur OK. 
-Maintenant, la base de données est prete à utiliser.
-Ouvrez maintenant le MS VS 2019 :
-Une écran comme la suivante s'affichera, puis séléctionnez l'option : Open a project or a solution
+Cliquez sur Ok. Après, le nom de la base de données sera automatiquement généré ( à ne pas changer) et finalement cliquez sur OK. 
+Maintenant, la base de données est prete à utiliser. 
+
+Ouvrez maintenant le MS VS 2019 : 
+
+Une écran comme la suivante s'affichera, puis séléctionnez l'option : <strong>Open a project or a solution</strong>
 	
 ![screen](https://github.com/isbainemohamed/GeoBAM/blob/master/image5.png) 
 
@@ -72,16 +76,20 @@ Ensuite, spécifier l'emplacement du fichier GeoBAM.sln comme suit:
 	
 ![screen](https://github.com/isbainemohamed/GeoBAM/blob/master/image6.png) 
 	
-le projet s'ouvre automatiquement, et vous pouvez directement lancer l'application sur votre machine (Serveur IIS). 
+le projet s'ouvre automatiquement, et vous pouvez directement lancer l'application sur votre machine en cliquant sur <strong>IIS Express</strong> (Serveur IIS). 
+
 ![screen](https://github.com/isbainemohamed/GeoBAM/blob/master/image2.png) 
-## Description du code
+
+## Explication du code
  Après avoir deployer le projet localement, il est temps de décrire le code et l'expliquer.
  
- On commence par décrire l'arborescence du projet.
- ### Description de l'arborescence du projet: 'solution Explorer'
+ On commence par décrire l'arborescence du projet. 
+
+ ### Description de l'arborescence du projet: 'solution Explorer' : 
+ 
  ![screen](https://github.com/isbainemohamed/testtt/blob/main/solution%20explorer.png)
  
-	Lorsque on ouvre le projet, on trouve un bloque qui s'intitule 'Solution Explorer'. 
+Lorsque on ouvre le projet, on trouve un bloque qui s'intitule 'Solution Explorer'. 
 Ce bloc contient l'ensemble des fichiers du projets.
 	
   * Premièrement,On trouve 'Dependencies' qui contient l'ensemble des packages, analyseurs, frameworks utilisées dans le projet.
@@ -1109,9 +1117,10 @@ On commence par le dossier POImanager, qui se constitue de 5 pages web: Index , 
 			}
 
 	```
-De la meme facon pour les pages 'POImanager/Delete' et 'POImanager/Details'.
-Concernant le dossier *Pages/UserManager* , il est aussi généré à l'aide du modèle CRUD. et donc il a la meme architecture que POImanager.ce qui change c'est le modèle de donnée, pour qui'il puisse comuuniquer avec la table Users.
-- La pages 'home' est la page d'ajout d'un point. Elle contient une Carte Leaflet ( En savoir plus dans la partie Outils utilisés), dont l'utlisateur déssine un polygone, un rectangle, un cercle oubien un marqueur simple. Ainsi, il peut afficher sa position courante dans la carte.  
+De la meme façon pour les pages 'POImanager/Delete' et 'POImanager/Details'. 
+
+Concernant le dossier *Pages/UserManager* , il est aussi généré à l'aide du <strong>modèle CRUD</strong>. et donc il a la meme architecture que POImanager.ce qui change c'est juste le modèle de donnée, pour qu'il puisse communiquer avec la table Users.
+			- La pages 'home' est la page d'ajout d'un point. Elle contient une Carte <strong>Leaflet</strong> ( En savoir plus dans la partie Outils utilisés), dont l'utlisateur déssine un polygone, un rectangle, un cercle oubien un marqueur simple. Ainsi, il peut afficher sa position courante dans la carte.  
 			
 			
 	```html
