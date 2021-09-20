@@ -1,6 +1,6 @@
 # Présentation de GéoBAM
 
-GéoBAM est une application web multi-platforme, interactive et pratique. Cette application est dédiée à la géolocalisation des points d'adresses et les stocker dans une base de données interne. Les points collectés sont rajoutés à une carte interactive.  
+GéoBAM est une application web multi-platforme, interactive et pratique. Elle est dédiée à la géolocalisation des points d'adresses et les stocker dans une base de données interne. Ensuite,les points collectés sont rajoutés à une carte interactive.  
 
 *<h3>PLAN<h3>* 
  1. Outils utilisés
