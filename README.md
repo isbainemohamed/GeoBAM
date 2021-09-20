@@ -26,11 +26,11 @@ En plus de ça, on a utilisé la framework <strong>Entity FrameWork</strong> , q
 	
 Vu que notre application doit assurer la gestion des points d'adresses, ainsi que l'accès des utilisateurs (opérateurs et administrateurs), il a été nécéssaire de passer par le <strong>modèle CRUD (Create, Read,Update, Delete)</strong> qui permet la gestion des tables de données. Le modèle CRUD permet de générer automatiquement quatre pages Razor ( front-end et back-end) qui servent à manipuler les données d'une table SQL. Pour ce faire, il suffit de lui donner en paramètre le contexte de la base de données, et la classe représentant le modèle ORM de la table. Et on a quatre pages générées automatiquement et qui restent largement modifiables pour toute adaptation du code. 
 
-	Le stockage des données est assuré par un <strong>SGBD</strong> ,qui  est un logiciel système servant à stocker, à manipuler ou gérer, et à partager des données dans une base de données, en garantissant la qualité, la pérennité et la confidentialité des informations, tout en cachant la complexité des opérations. Dans notre cas on a choisit <strong>Microsoft SQL Server 2019</strong> qui sert comme un serveur de base de données.  
+Le stockage de données est assuré par un <strong>SGBD</strong> ,qui  est un logiciel système servant à stocker, à manipuler ou gérer, et à partager des données dans une base de données, en garantissant la qualité, la pérennité et la confidentialité des informations, tout en cachant la complexité des opérations. Dans notre cas on a choisit <strong>Microsoft SQL Server 2019</strong> qui sert comme un serveur de base de données.  
 
 L'application GéoBAM utilise le <strong>fond cartographique OpenStreetMap</strong>, pour pouvoir ajouter et afficher les points d'adresses. cette intégration de cartes se fait à l'aide d'une API javascript appelée <strong>Leaflet<strong>. 
 	
-Leaflet est une bibliothèque JavaScript pour la création de cartes intéractives dans navigateur web ou un environnement mobile. Elle est légère, mais possède toutes les caractéristiques dont la plupart des développeurs ont besoin pour créer des cartes en ligne. Leaflet est conçu avec la simplicité, la performance et la convivialité à l’esprit.
+
 
  
 
