@@ -14,9 +14,10 @@ GéoBAM est une application web multi-platforme, interactive et pratique. Elle e
 ## Outils utilisés
  GéoBAM a été développée en utilisant la framework ASP.NET Core Razor Pages. ASP.NET Core est une infrastructure multiplateforme, à hautes performances et open source pour la création d’applications modernes, basées sur le cloud et connectées à Internet.Cette Framework permet de:
  * Créer des applications et services Web, des applications d'Internet des objets (IOT) et des serveurs principaux mobiles.
- * Utiliser vos outils de développement préférés sur Windows, macOS et Linux.
+ * Utiliser les outils de développement préférés sur Windows, macOS et Linux (multi-plateforme). 
  * Déployer dans le cloud ou localement.
- * Exécutez sur .net Core.
+ * Exécutez sur .net Core. 
+
 La technologie Razor a été conçu pour faciliter la conception des pages ASP.NET. Elle introduit une syntaxe de programmation assez facilement compréhensible, qui permet d'insérer du code serveur dans une page Web qui peut également contenir du HTML, du CSS et des scripts JavaScript.
 
 Le moteur Razor est fluide, compact, expressif et s'appuie sur la syntaxe des langages .NET C# et Visual Basic .NET. Il offre la puissance d'ASP.NET pour la création rapide des applications Web fonctionnelles et sophistiquées. 
