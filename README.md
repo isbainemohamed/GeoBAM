@@ -30,18 +30,25 @@ Le stockage de données est assuré par un <strong>SGBD</strong> ,qui  est un lo
 
 L'application GéoBAM utilise le <strong>fond cartographique OpenStreetMap</strong>, pour pouvoir ajouter et afficher les points d'adresses. cette intégration de cartes se fait à l'aide d'une API javascript appelée <strong>Leaflet<strong>. 
 	
-
+Leaflet est une bibliothèque JavaScript pour la création de cartes intéractives dans navigateur web ou un environnement mobile. Elle est légère, mais possède toutes les caractéristiques dont la plupart des développeurs ont besoin pour créer des cartes en ligne. Leaflet est conçu avec la simplicité, la performance et la convivialité à l’esprit.
 
  
 
-## Installations à faire
-* <h2>Microsoft Visual studio 2019 :<h2>
- Pour pouvoir travailler avec .NET généralement , il est conseillé d'utiliser <strong>Microsoft Visual Studio</strong>, qui est une suite de logiciels de développement  pour Windows et mac OS conçue par Microsoft. La dernière version s'appelle Visual Studio 2019.Visual Studio est un ensemble complet d'outils de développement permettant de générer des applications web ASP.NET, des services web XML, des applications bureautiques et des applications mobiles.
-  [ le télécharger ici](https://visualstudio.microsoft.com/fr/vs/).
-* <h2>Microsoft SQL Server 2019 :<h2>
- Pour avoir un serveur de base de données sur notre machine, on doit installer  SQL server 2019.[Cliquez ici pour le télécharger](https://www.microsoft.com/en-us/sql-server/sql-server-downloads). 
+## Installations à faire: 
 
-## Ouverture du projet en MS visual studio 2019
+1. <h2>Microsoft Visual studio 2019 :<h2> 
+	
+Pour pouvoir travailler avec .NET généralement , il est conseillé d'utiliser <strong>Microsoft Visual Studio</strong>, qui est une suite de logiciels de développement  pour Windows et mac OS conçue par Microsoft. La dernière version s'appelle Visual Studio 2019.Visual Studio est un ensemble complet d'outils de développement permettant de générer des applications web ASP.NET, des services web XML, des applications bureautiques et des applications mobiles.
+  [ le télécharger ici](https://visualstudio.microsoft.com/fr/vs/). 
+	
+2. <h2>Microsoft SQL Server 2019 :<h2> 
+	
+Pour avoir un serveur de base de données sur notre machine, on doit installer  SQL server 2019.[Cliquez ici pour le télécharger](https://www.microsoft.com/en-us/sql-server/sql-server-downloads). 
+	
+
+## Ouverture du projet avec MS visual studio 2019: 
+
+
 Après avoir installer Ms Visual studio et Ms Sql Server. Il est temps d'importer le projet sur notre machine:
 Le repository github contient le code complet du projet. Et donc il suffit de le télécharger en format zip. puis le décompresser.
 Ensuite, vous  devez  préparer le serveur de données en créant la base de données GeoBAMDB sur le serveur local MS SQL server.
