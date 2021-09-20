@@ -1379,7 +1379,7 @@ Concernant le dossier *Pages/UserManager* , il est aussi généré à l'aide du 
 
 	```	
 			
- - 'home.cshtml.cs' est le backend, qui est reposnable de l'envoie des données geoJSON vers la page 'POImanager/Create'.  
+ - 'home.cshtml.cs' est le backend, qui est responsable de l'envoie des données geoJSON vers la page 'POImanager/Create'.  
 			
 			
 ```csharp
@@ -1443,7 +1443,7 @@ Concernant le dossier *Pages/UserManager* , il est aussi généré à l'aide du 
 ```
 			
 - La page 'Index' est la première page qui se charge. Elle doit afficher un contenu adaptif. Lorsque l'utilisateur n'est pas connecté, on lui affiche un boutton  
-  qui le redirige vers la page de connexion, sinon on lui affich un menu de navigation.
+  qui le redirige vers la page de connexion, sinon on lui affiche le menu de navigation.
   - 'Index.cshtml'  
 			
 	```html
@@ -1530,7 +1530,7 @@ Concernant le dossier *Pages/UserManager* , il est aussi généré à l'aide du 
 
 
 	```		
-- La page 'Login' est la page de connexion, qui prend les données saisies (email, mot de passe) et cherche dans la table Users. Si les coordonées sont correctes on laisse passer vers la page d'acceuil.
+- La page 'Login' est la page de connexion, qui prend les données saisies (email, mot de passe) et cherche dans la table Users. Si les coordonées sont correctes on laisse passer vers la page d'acceuil. , et on crée un cookie d'authentification
   - 'login.cshtml':  
 
 	```html
