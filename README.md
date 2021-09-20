@@ -1120,10 +1120,10 @@ On commence par le dossier POImanager, qui se constitue de 5 pages web: Index , 
 De la meme façon pour les pages 'POImanager/Delete' et 'POImanager/Details'. 
 
 Concernant le dossier *Pages/UserManager* , il est aussi généré à l'aide du <strong>modèle CRUD</strong>. et donc il a la meme architecture que POImanager.ce qui change c'est juste le modèle de donnée, pour qu'il puisse communiquer avec la table Users.
-			- La pages 'home' est la page d'ajout d'un point. Elle contient une Carte <strong>Leaflet</strong> ( En savoir plus dans la partie Outils utilisés), dont l'utlisateur déssine un polygone, un rectangle, un cercle oubien un marqueur simple. Ainsi, il peut afficher sa position courante dans la carte.  
+- La pages 'home' est la page d'ajout d'un point. Elle contient une Carte <strong>Leaflet</strong> ( En savoir plus dans la partie Outils utilisés), dont l'utlisateur déssine un polygone, un rectangle, un cercle oubien un marqueur simple. Ainsi, il peut afficher sa position courante dans la carte.  
 			
 			
-	```html
+```html
 			@page
 			@model GeoBAM.Pages.homeModel
 			@{
@@ -1377,12 +1377,14 @@ Concernant le dossier *Pages/UserManager* , il est aussi généré à l'aide du 
 
 
 
-	```	
+``` 
+
 			
- - 'home.cshtml.cs' est le backend, qui est responsable de l'envoie des données geoJSON vers la page 'POImanager/Create'.  
+ - 'home.cshtml.cs' est le backend, qui est responsable de l'envoie des données geoJSON vers la page 'POImanager/Create'. 
+	
 			
 			
-```csharp
+	```csharp
 		using System;
 		using System.Collections.Generic;
 		using System.Linq;
@@ -1440,13 +1442,14 @@ Concernant le dossier *Pages/UserManager* , il est aussi généré à l'aide du 
 
 
 
-```
+	``` 
+
 			
 - La page 'Index' est la première page qui se charge. Elle doit afficher un contenu adaptif. Lorsque l'utilisateur n'est pas connecté, on lui affiche un boutton  
   qui le redirige vers la page de connexion, sinon on lui affiche le menu de navigation.
   - 'Index.cshtml'  
 			
-	```html
+```html
 			@page
 			@model IndexModel
 
@@ -1529,7 +1532,8 @@ Concernant le dossier *Pages/UserManager* , il est aussi généré à l'aide du 
 			</html>
 
 
-	```		
+``` 
+
 - La page 'Login' est la page de connexion, qui prend les données saisies (email, mot de passe) et cherche dans la table Users. Si les coordonées sont correctes on laisse passer vers la page d'acceuil. , et on crée un cookie d'authentification
   - 'login.cshtml':  
 
@@ -1836,12 +1840,16 @@ Concernant le dossier *Pages/UserManager* , il est aussi généré à l'aide du 
 
 ```
 
-			
+Comme vous pouvez le constater, l'utilisation de la technologi Razor a beaucoup facilité la tache, en offrant une simplicité et une certaine indépendance entre les pages. 
+
 ## Déploiment de l'application:
+
 Pour déployer l'application GéoBAM sur un serveur prenant en charge ASP.NET, il suffit de suivre les étapes suivante: 
+
 ### Etape 1:  Préparer une base de données:
+
 La préparation d'une base de données est primordial. Vous devez créer une base de doonées en s'apppuyant sur le fichier de backup GeoBAMDB.bak dont on a parlé précédemment.
-Ensuite il faut générer la chaine de connexion spécifique à cette base de données pour pouvoir lier le projet avec cette DB.
+Ensuite il faut générer la <strong>chaine de connexion</strong> spécifique à cette base de données pour pouvoir lier le projet avec cette DB.
 
 ### Etape2: 
  Ouvrir MS VS 2019, allez vers *Solution Explorer* et cliquez droit sur GeoBAM: cliquez sur *Publish* 
