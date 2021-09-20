@@ -28,7 +28,7 @@ Vu que notre application doit assurer la gestion des points d'adresses, ainsi qu
 
 Le stockage de données est assuré par un <strong>SGBD</strong> ,qui  est un logiciel système servant à stocker, à manipuler ou gérer, et à partager des données dans une base de données, en garantissant la qualité, la pérennité et la confidentialité des informations, tout en cachant la complexité des opérations. Dans notre cas on a choisit <strong>Microsoft SQL Server 2019</strong> qui sert comme un serveur de base de données.  
 
-L'application GéoBAM utilise le <strong>fond cartographique OpenStreetMap</strong>, pour pouvoir ajouter et afficher les points d'adresses. cette intégration de cartes se fait à l'aide d'une API javascript appelée <strong>Leaflet<strong>. 
+L'application GéoBAM utilise le <strong>fond cartographique OpenStreetMap</strong>, pour pouvoir ajouter et afficher les points d'adresses. cette intégration de cartes se fait à l'aide d'une API javascript appelée . 
 	
 Leaflet est une bibliothèque JavaScript pour la création de cartes intéractives dans navigateur web ou un environnement mobile. Elle est légère, mais possède toutes les caractéristiques dont la plupart des développeurs ont besoin pour créer des cartes en ligne. Leaflet est conçu avec la simplicité, la performance et la convivialité à l’esprit.
 
